@@ -86,7 +86,7 @@ html.list.button.addEventListener('click', () => {
 })
 
 const bookSummaryHandler = (event) => {
-    let active = findBookNode(event)
+    let active = findBookNode(event, books)
     
     if (active) {
         html.summary.active.open = true
