@@ -76,14 +76,19 @@ template.innerHTML = /* Html */ `
 
 class BookPreview extends HTMLElement {
     #dataPreview = this.getAttribute('data-preview')
-    // @ts-ignore
+    /**
+     * @type {string | null}
+     */
     #src = this.getAttribute('src')
-    // @ts-ignore
+    /**
+     * @type {string | null}
+     */
     #title = this.getAttribute('title')
-    // @ts-ignore
+    /**
+     * @type {string | null}
+     */
     #author = this.getAttribute('author')
 
-    // @ts-ignore
     #elements = {
         /**
         //  * @type {undefined | HTMLImageElement}
@@ -125,13 +130,13 @@ class BookPreview extends HTMLElement {
 
         // @ts-ignore
         // this.#elements.dataPreview.dataset.data-preview = this.#dataPreview
-        // @ts-ignore
         this.#elements.img.src = this.#src
         // @ts-ignore
         this.#elements.title.innerText = this.#title
         // @ts-ignore
         this.#elements.author.innerText = this.#author
 
+        console.log(this.#src)
     }
 }
 

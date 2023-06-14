@@ -32,25 +32,36 @@ export const populateDropDown = (DropDownElement, DropDownName, dataObject) => {
  */
 export const createBookPreview = (itemsArray, authorsObj) => {
     const newItems = document.createDocumentFragment()
+    // const newItems = document.createElement('div')
 
-    for (const { author, id, image, title } of itemsArray) {
-        const element = document.createElement('button')
-        element.classList = 'preview'
-        element.setAttribute('data-preview', id)
     
-        element.innerHTML = `
-            <img
-                class="preview__image"
-                src="${image}"
-            />
+
+    for (const { author, id, image, title } of itemsArray.slice(0,2)) {
+        const element = document.createElement('book-preview')
+        // element.classList = 'preview'
+        element.setAttribute('data-preview', id)
+        element.setAttribute('src', image)
+        element.setAttribute('title', title)
+        element.setAttribute('author', authorsObj[author])
+    
+        // element.innerHTML = `
+        //     <img
+        //         class="preview__image"
+        //         src="${image}"
+        //     />
             
-            <div class="preview__info">
-                <h3 class="preview__title">${title}</h3>
-                <div class="preview__author">${authorsObj[author]}</div>
-            </div>
-        `
+        //     <div class="preview__info">
+        //         <h3 class="preview__title">${title}</h3>
+        //         <div class="preview__author">${authorsObj[author]}</div>
+        //     </div>
+        // `
+
 
         newItems.appendChild(element)
+
+        // newItems.innerHTML += /* Html */`
+        //     <book-preview></book-preview>
+        // `
     }
 
     return newItems
