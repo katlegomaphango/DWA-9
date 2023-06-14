@@ -59,7 +59,7 @@ template.innerHTML = /* Html */ `
         color: rgba(var(--color-dark), 0.4);
     }
 
-    <div class="preview">
+    <div class="preview" data-preview>
         <img
             class="preview__image"
             src=""
@@ -73,6 +73,7 @@ template.innerHTML = /* Html */ `
 `
 
 class BookPreview extends HTMLElement {
+    #dataPreview = this.getAttribute('data-preview')
     // @ts-ignore
     #src = this.getAttribute('src')
     // @ts-ignore
@@ -82,6 +83,10 @@ class BookPreview extends HTMLElement {
 
     // @ts-ignore
     #elements = {
+        /**
+         * @type {undefined | HTMLImageElement}
+         */
+        dataPreview: undefined,
         /**
          * @type {undefined | HTMLImageElement}
          */
@@ -107,6 +112,8 @@ class BookPreview extends HTMLElement {
     connectedCallback() {
         this.#elements = {
             // @ts-ignore
+            dataPreview: this.#inner.querySelector('data-preview'),
+            // @ts-ignore
             img: this.#inner.querySelector('img'),
             // @ts-ignore
             title:  this.#inner.querySelector('h3'),
@@ -114,6 +121,8 @@ class BookPreview extends HTMLElement {
             author:  this.#inner.querySelector('.preview__author'),
         }
 
+        // @ts-ignore
+        this.#elements.dataPreview?.src = this.#dataPreview
         // @ts-ignore
         this.#elements.img?.src = this.#src
         // @ts-ignore
