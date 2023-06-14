@@ -1,6 +1,7 @@
 import { books, authors, genres, BOOKS_PER_PAGE, html } from './modules/data.js'
 import { populateDropDown, createBookPreview, updateShowMoreBtn } from './modules/updateHtml.js'
 import { findBookNode, filterBookArray, setThemeProperty } from './modules/helpers.js';
+import "./components/book-preview.js"
 
 let page = 1;
 let matches = books

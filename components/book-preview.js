@@ -122,9 +122,9 @@ class BookPreview extends HTMLElement {
         }
 
         // @ts-ignore
-        this.#elements.dataPreview?.src = this.#dataPreview
+        this.#elements.dataPreview.src = this.#dataPreview
         // @ts-ignore
-        this.#elements.img?.src = this.#src
+        this.#elements.img.src = this.#src
         // @ts-ignore
         this.#elements.title.innerText = this.#title
         // @ts-ignore
