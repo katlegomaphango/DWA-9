@@ -129,14 +129,11 @@ class BookPreview extends HTMLElement {
         }
 
         // @ts-ignore
-        // this.#elements.dataPreview.dataset.data-preview = this.#dataPreview
         this.#elements.img.src = this.#src
         // @ts-ignore
         this.#elements.title.innerText = this.#title
         // @ts-ignore
         this.#elements.author.innerText = this.#author
-
-        console.log(this.#src)
     }
 }
 
